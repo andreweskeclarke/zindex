@@ -6,7 +6,7 @@ ROOT_DIR := $(shell pwd)
 
 ${BUILD_DIR}/Makefile: CMakeLists.txt
 	mkdir -p ${BUILD_DIR}
-	cd ${BUILD_DIR} && cmake ${ROOT_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+	cd ${BUILD_DIR} && cmake ${ROOT_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -UseLTO=ON 
 
 all: ${BUILD_DIR}/Makefile
 	$(MAKE) -C ${BUILD_DIR} all
